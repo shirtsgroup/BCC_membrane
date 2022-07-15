@@ -1,0 +1,3 @@
+# list all monotamic ions that are included in ions.itp here
+BR
+

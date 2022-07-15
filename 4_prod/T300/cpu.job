@@ -1,0 +1,56 @@
+#!/bin/bash
+#SBATCH -N 1 --ntasks-per-node 16
+#SBATCH -t 8:00:00
+#SBATCH -p RM-shared
+#SBATCH -J '9.3:300'
+
+
+module load gcc
+source /jet/home/susa/pkgs/gromacs/2020.5/bin/GMXRC
+
+export GMX_MAXBACKUP=-1  # do not make back-ups
+export GMX_MAXCONSTRWARN=-1
+
+
+cp ../../3_equilibrate/npt_long.gro ./
+
+i=0
+if [ ! -f prod$i.xtc ]; then
+    gmx grompp -f prod0.mdp -p topol_unres.top -c npt_long.gro -o prod$i
+    gmx mdrun -v -deffnm prod$i -nt 8 -ntomp 2
+elif [ ! -f prod$i.gro ]; then
+    gmx mdrun -v -deffnm prod$i -cpi prod$i.cpt -nt 8 -ntomp 2
+fi
+
+
+
+i=1
+j=0
+if [ ! -f prod$i.xtc ]; then
+    gmx grompp -f prod1.mdp -p topol_unres.top -c prod$j.gro -o prod$i
+    gmx mdrun -v -deffnm prod$i -nt 8 -ntomp 2
+elif [ ! -f prod$i.gro ]; then
+    gmx mdrun -v -deffnm prod$i -cpi prod$i.cpt -nt 8 -ntomp 2
+fi
+
+i=2
+j=1
+if [ ! -f prod$i.xtc ]; then
+    gmx grompp -f prod1.mdp -p topol_unres.top -c prod$j.gro -o prod$i
+    gmx mdrun -v -deffnm prod$i -nt 8 -ntomp 2
+elif [ ! -f prod$i.gro ]; then
+    gmx mdrun -v -deffnm prod$i -cpi prod$i.cpt -nt 8 -ntomp 2
+fi
+
+i=3
+j=2
+if [ ! -f prod$i.xtc ]; then
+    gmx grompp -f prod1.mdp -p topol_unres.top -c prod$j.gro -o prod$i
+    gmx mdrun -v -deffnm prod$i -nt 8 -ntomp 2
+elif [ ! -f prod$i.gro ]; then
+    gmx mdrun -v -deffnm prod$i -cpi prod$i.cpt -nt 8 -ntomp 2
+fi
+
+
+
+

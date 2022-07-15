@@ -1,0 +1,20 @@
+;Forcefield
+#include "lib/Forcefields/mod_gly_ion.itp"
+
+;ITW Topology
+#include "res_top/ITW_res_50.itp"
+
+;ION Topology
+#include "lib/topologies/ION.itp"
+
+;GLY Topology
+#include "lib/topologies/GLY.itp"
+
+[ system ]
+Simulation Box
+
+[ molecules ]
+;Compounds     nmols
+ITW	        486
+ION             972
+GLY             1236

@@ -1,0 +1,18 @@
+build_parameters:
+        space_group: 'gyroid' 
+        build_monomer: 'ITW'
+        initial_name: 'initial.gro'
+        box_length: 9.3
+        grid: 50  
+        density: 1.1
+        curvature: 0.0  
+        weight_percent: 80  
+        solvent: 'GLY'
+        shift: 0.3
+        restraints: False
+        restraint_residue: ITW
+        
+
+
+
+

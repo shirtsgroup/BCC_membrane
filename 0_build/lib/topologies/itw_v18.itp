@@ -1,0 +1,83 @@
+; Here I add bending-torson dihedral
+[moleculetype]
+; molname      nrexcl
+  ITW           1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+   1 	TP2q 	 1 	ITW 	I1A 	 1      0.5       
+   2    TP2q	 1      ITW     I1B      2      0.5
+   3 	TC5 	 1 	ITW 	I2A 	 3 	0 	
+   4 	TC5 	 1 	ITW 	I2B 	 4 	0 	
+   5 	SP2q 	 1 	ITW 	I3A 	 5 	0.5 	
+   6 	SP2q 	 1 	ITW 	I3B 	 6 	0.5 	
+   7 	C4 	 1 	ITW 	I4 	 7 	0	
+   8    SC3 	 1 	ITW 	I5A 	 8 	0 
+   9 	SC3 	 1 	ITW 	I5B 	 9 	0 	
+  10    C1 	 1 	ITW 	I6A 	10 	0 
+  11    C1 	 1 	ITW 	I6B 	11 	0 
+  12    C1 	 1 	ITW 	I7A 	12 	0 
+  13    C1 	 1 	ITW 	I7B 	13 	0 	
+  14 	C1 	 1 	ITW 	I8A 	14 	0 
+  15 	C1 	 1 	ITW 	I8B 	15 	0 
+  16 	TC5 	 1 	ITW 	I9A 	16 	0 
+  17 	TC5 	 1 	ITW 	I9B 	17	0 
+
+
+[bonds]
+;  i  j 	funct 	length 	force.c.
+; I1--I4 (TP2q--C4)
+   1  7         1       0.336    2500
+   2  7         1       0.336    2500
+;I3--I5 (SP2q--SC3)
+   5  8         1       0.342    2500
+   6  9         1       0.342    2500
+;I5 - I6 (SC3 -- C1)
+   8  10        1       0.428    1250 
+   9  11        1       0.428    1250
+;I6- I7 (C1 -- C1)
+   10 12        1       0.493    1250
+   12 14        1       0.493    1250
+;I7 I8 (C1 -- C1)
+   11 13        1       0.476    1250
+   13 15        1       0.476    1250
+;I8-9 (C1 -- TC5)
+   14 16        1       0.371    2500
+   15 17        1       0.371    2500 
+   
+
+[constraints]
+; I1-I2
+   1  3 	1       0.241
+   2  4         1       0.241
+;  I1-I3
+   1  5 	1       0.304
+   2  6         1       0.304
+
+;  I2-I3
+   3  5 	1       0.220
+   4  6         1       0.220
+
+[angles]
+;  i  j  k 	funct 	angle 	force.c.
+1 7 2             2     130.0            50	  ; I1A I4  I1B
+3 1 7             2     125.0            50	  ; I2A I1A I4
+4 2 7             2     125.0            50	  ; I2B I1B I4
+1 5 8             2     145.0            50	  ; I1A I3A I5A
+2 6 9             2     145.0            50	  ; I1B I3B I5B
+3 5 8             2     130.0            50 	  ; I2A I3A I5A
+4 6 9             2     130.0            50	  ; I2B I3B I5B
+6 9 11            2     155.0            50	  ; I3A I5A I6A
+5 8 10            2     155.0            50	  ; I3B I5B I6B
+9 11 13           2     180.0            50       ; I5A I6A I7A
+8 10 12           2     180.0            50       ; I5B I6B I7B
+11 13 15          2     180.0            50       ; I6A I7A I8A
+10 12 14          2     180.0            50       ; I6B I7B I8B
+13 15 17          2     180.0            50       ; I7A I8A I9A
+12 14 16          2     180.0            50       ; I7B I8B I9B
+
+
+[dihedrals]
+; i j k l       funct k_phi  a0 a1 a2 a3 a4
+6 2 7 1          11    2    0  -2  0  0  0 
+5 1 7 2          11    2    0  -2  0  0  0 

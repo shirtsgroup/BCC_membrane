@@ -1,0 +1,25 @@
+
+;;;;;; Glycerol
+
+[ moleculetype ]
+; molname    nrexcl
+  GLY         1 
+
+[ atoms ]
+; nr type resnr residue atom cgnr charge mass
+   1  TP6   0    GLY   C    1     0     31
+   2  TP6   0    GLY   C1    2    0     30   
+   3  TP6   0    GLY   C2    3    0     31   
+
+
+[bonds]
+; i  j  funct length
+  1  2   1     0.2341   25000 ; cog
+  2  3   1     0.2341   25000 ; cog
+
+
+[angles]
+; i  j k   funct angle force.C
+  1  2 3    2    93.41 100
+
+

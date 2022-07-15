@@ -1,0 +1,11 @@
+I copied itw_v18.itp to ITW.itp and made necessary changes to reflect the new bead types and two added beads at the end
+
+Some changes necessary in ITW_V18.itp
+
+* replace [ atoms ] field of ITW.itp with that of ITW_old.itp
+* add space after [
+* Add annotation
+* Add a colummn with mass
+* add [ pair ] field (blank)
+* add  ; propers after [ dihedrals ]
+* add blank [ dihedrals ] ; impropers

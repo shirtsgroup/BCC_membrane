@@ -1,0 +1,25 @@
+build_parameters:
+        space_group: 'gyroid' 
+        build_monomer: 'ITW'
+        initial_name: 'sd.gro'
+        box_length: 9.3
+        grid: 50  #number of points in each dimension to divide unit cell into when approximating space group surface
+        density: 1.1
+        curvature: 0.0  # controls mean curvature interface between hydrophilic and hydrophobic region
+        weight_percent: 80  # weight percent of monomer
+        solvent: 'GLY'
+        shift: 0.3
+        restraints: [1000, 1000, 1000]
+        restraint_residue: 'ITW'
+        
+simulation_parameters:
+        temperature: 200  # K
+        scale_factor: 3  # factor by which to isotropically scale unit cell
+
+
+parallelization:
+        mpi: False
+        nprocesses: 1
+        domain_decomposition: [1, 1, 1]
+
+
