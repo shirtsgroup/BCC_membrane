@@ -1,0 +1,182 @@
+[ molecule ]
+MOL
+
+[ martini ]
+I1A I1B I2A I2B I3A I3B I4 I5A I5B I6A I6B I7A I7B I8A I8B I9A I9B
+;
+;    -I3A-I5A-I6A-I7A-I8A-I9A
+;   |  |
+; I1A-I2A
+;  |
+;  I4
+;  |
+; I1B-I2B
+;   |  |
+;    -I3B-I5B-I6B-I7B-I8B-I9B
+
+
+[ mapping ]
+gaff
+
+[ atoms ]
+; right side tail
+; TC5 (I9A)
+    1    C   I9A 
+    2    H   I9A
+    3    H1  I9A
+    4    C1  I9A
+    5    H2  I9A
+; C1 end (I8A)
+    6    C2  I9A I9A I8A
+    7    H3  I9A I9A I8A
+    8    C3  I9A I8A I8A
+    9    H4  I9A I8A I8A
+   10    C4  I8A
+   11    H5  I8A
+   12    H6  I8A
+   13    C5  I8A
+   14    H7  I8A
+   15    H8  I8A
+; C1 middle (I7A)
+   16    C6  I8A I8A I7A
+   17    H9  I8A I8A I7A
+   18    H10 I8A I8A I7A
+   19    C7  I8A I7A I7A
+   20    H11 I7A I7A I8A
+   21    H12 I7A I7A I8A
+   22    C8  I7A
+   23    H13 I7A
+   24    H14 I7A
+   25    C9  I7A
+   26    H15 I7A
+   27    H16 I7A
+; C1 head (I6A)
+   28    C10 I7A I7A I6A
+   29    H17 I7A I7A I6A
+   30    H18 I7A I7A I6A
+   31    C11 I7A I6A I6A
+   32    H19 I7A I6A I6A
+   33    H20 I7A I6A I6A
+   34    C12 I6A
+   35    H21 I6A
+   36    H22 I6A
+   37    C13 I6A
+   38    H23 I6A
+   39    H24 I6A
+; SC3 (I5A)
+   40    C14 I6A I6A I5A
+   41    H25 I6A I6A I5A
+   42    H26 I6A I6A I5A
+   43    C15 I6A I5A I5A
+   44    H27 I6A I5A I5A
+   45    H28 I6A I5A I5A
+   46    C16 I5A
+   47    H29 I5A
+   48    H30 I5A
+
+; right side head group
+; SP2q (I3A)
+   49    C17 I5A I3A
+   50    H31 I5A I3A
+   51    H32 I5A I3A
+   52    N   I3A
+   53    C47 I3A I1A
+   54    H83 I3A I1A
+; TC5 (I2A)
+   55    C18 I3A I2A
+   56    H33 I3A I2A
+   57    C19 I2A
+   58    H34 I2A
+; TP2q (I1A)
+   59    N1  I2A I1A
+   60    C20 I1A
+   61    H35 I1A
+   62    H36 I1A
+
+ ; center linkage (I4)
+   63    C21 I4  I1A
+   64    H37 I4  I1A
+   65    H38 I4  I1A
+   66    C22 I4
+   67    H39 I4
+   68    H40 I4
+   69    C23 I4
+   70    H41 I4
+   71    H42 I4
+   72    C24 I4  I1B
+   73    H43 I4  I1B
+   74    H44 I4  I1B
+
+; left side head group
+; TP2q (I1B)
+   75    C25 I1B
+   76    H45 I1B
+   77    H46 I1B
+   78    N2  I2B I1B
+; TC5 (I2B)
+   79    C26 I2B
+   80    H47 I2B
+   81    C27 I3B I2B
+   82    H48 I3B I2B
+; SP2q (I3B)
+   83    N3  I3B
+   84    C28 I5B I3B
+   85    H49 I5B I3B
+   86    H50 I5B I3B
+   87    C46 I3B I1B
+   88    H82 I3B I1B
+
+; left side tail
+; SC3 (I5B)
+   89    C29 I5B
+   90    H51 I5B
+   91    H52 I5B
+   92    C30 I6B I5B I5B
+   93    H53 I6B I5B I5B
+   94    H54 I6B I5B I5B
+   95    C31 I6B I6B I5B
+   96    H55 I6B I6B I5B
+   97    H56 I6B I6B I5B
+; C1 head (I6B)
+   98    C32 I6B
+   99    H57 I6B
+  100    H58 I6B
+  101    C33 I6B
+  102    H59 I6B
+  103    H60 I6B
+  104    C34 I7B I6B I6B
+  105    H61 I7B I6B I6B
+  106    H62 I7B I6B I6B
+  107    C35 I7B I7B I6B
+  108    H63 I7B I7B I6B
+  109    H64 I7B I7B I6B
+; C1 middle (I7B)
+  110    C36 I7B
+  111    H65 I7B
+  112    H66 I7B
+  113    C37 I7B
+  114    H67 I7B
+  115    H68 I7B
+  116    C38 I8B I7B I7B
+  117    H69 I8B I7B I7B
+  118    H70 I8B I7B I7B
+  119    C39 I8B I8B I7B
+  120    H71 I8B I8B I7B
+  121    H72 I8B I8B I7B
+; C1 end (I8B)
+  122    C40 I8B
+  123    H73 I8B
+  124    H74 I8B
+  125    C41 I8B
+  126    H75 I8B
+  127    H76 I8B
+  128    C42 I9B I8B I8B
+  129    H77 I9B I8B I8B
+  130    C43 I9B I9B I8B
+  131    H78 I9B I9B I8B
+; TC5 (I9B)
+  132    C44 I9B
+  133    H79 I9B
+  134    H80 I9B
+  135    C45 I9B
+  136    H81 I9B

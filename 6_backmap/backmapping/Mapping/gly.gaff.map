@@ -1,0 +1,30 @@
+[ molecule ]
+GLY
+
+[ martini ]
+C C1 C2
+
+[ mapping ]
+gaff
+
+[ atoms ]
+    1     O   C
+    2     C   C
+    3    C1   C1
+    4    C2   C2
+    5    O1   C2
+    6    O2   C1
+    7     H   
+    8    H1   
+    9    H2   
+   10    H3   
+   11    H4   
+   12    H5   
+   13    H6   
+   14    H7   
+
+[ out ]
+    C   O   H   H1  H2
+    C1  O2  H3  H7
+    C2  O1  H4  H5  H6
+

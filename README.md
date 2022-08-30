@@ -2,33 +2,41 @@
 ### Follow these steps to build bicontinous cubic structure. 
 
 #### Step 1 : Build initial coarse-grained structure:
-* Goto the folder **1_build** and source **build.sh** which runs the python command:\
+* Go to the folder **1_build** and source **build.sh** which runs the python command:\
 `python build_initial.py -y build.yaml`
 
 #### Step 2: Minimize the initial structure:
-* Goto the folder **2_minimize** and source the script **minimize.sh**
+* Go to the folder **2_minimize** and source the script **minimize.sh**
 
 #### Step 3: Solvate with glycerol
-* Goto the folder **3_solv_gly** and source the script **solvate.sh** which runs python command:\
+* Go to the folder **3_solv_gly** and source the script **solvate.sh** which runs the python command:\
 `python bcc_solvate.py -y bcc_solvate.yaml`
 
 #### Step 4: Equilibrate 
-* Goto the folder **4_equilibrate** and source the script **equilibrate.sh**
+* Go to the folder **4_equilibrate** and source the script **equilibrate.sh**
 
 #### Step 5: Production run
-* Goto the folder **5_prod/T300** and submit the bactch job **cpu.job**
+* Go to the folder **5_prod/T300** and submit the batch job **cpu.job**
 
 #### Step 6: Backmap to all-atom model
-* Goto the folder **6_backmap**
+* Go to the folder **6_backmap/backmapping** and submit the batch job **backmap.job**
+    * Note 1: cluster must have Gromacs 2018 installed. The batch job assumes it is installable via `module load gromacs/2018`
+    * Note 2: we provide a yml file with the conda environment needed to run backmapping, so you should ensure you have a working installation of Anaconda3 sourced on your machine
 
-#### Step 7: Crosslink
-* Goto the folder **7_Xlink** and source the script **run_xlink.sh** which run python command:\
+#### Step 7: Equilibrate the all-atom model
+* Go to the folder **7_equil_AA** and submit the batch job **equil_AA.job**
+
+#### Step 8: Crosslink
+* Go to the folder **8_Xlink** and source the script **run_xlink.sh** which runs the python command:\
 `python bcc_xlink.py -y bcc_xlink.yaml >> bcc_xlink.log`
 
-#### Step 8: Solvate with water
-* Goto the folder **8_solv_water** and source the script **solvate.sh** which run python command:\
+#### Step 9: Solvate with water
+* Go to the folder **9_solv_water** and source the script **solvate.sh** which runs the python command:\
 `py bcc_solvate.py -y bcc_solvate.yaml`
 
+### Scripts to replicate our analysis of the pores and transport within the bicontinuous cubic structure.
+
+#### 
 
 
 

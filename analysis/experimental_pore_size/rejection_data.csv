@@ -1,0 +1,5 @@
+solute,diameter (nm),rejection (%),rejection std (%)
+sucrose,0.94,97,1
+glucose,0.73,87,4
+glycerol,0.36,45,5
+EG,0.32,24,6

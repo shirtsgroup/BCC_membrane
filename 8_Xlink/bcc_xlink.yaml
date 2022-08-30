@@ -1,0 +1,36 @@
+simulation_parameters:
+        temperature: 300  # K
+        scale_factor: 1.5 
+parallelization:
+        mpi: False
+        nprocesses: 4
+        domain_decomposition: [2, 2, 1]
+
+crosslinking:
+        initial: 'prod.gro'
+        build_mon: 'Dibrpyr14'
+        cutoff: 0.5
+        termination_probability: 100
+        dummy_name: 'dummies.gro'
+        xlink_top_name: 'assembly.itp'
+        topname: 'topol.top'
+        temperature: 343  # K
+        em_steps: 5000
+        dt: 0.002
+        length: 5
+        forcefield: 'gaff'
+        mdp_em: 'em.mdp'
+        mdp_nvt: 'nvt.mdp'
+        residue: 'MOL'
+        dummy_residue: 'MOLd'
+        density: 90
+        percent: 1
+        rad_percent: 20
+        output_gro: 'xlinked.gro'
+        rad_frac_term: 0
+        stagnation: 2
+        save_intermediates: True
+        save_frequency: 1
+        parallelize: False 
+        nproc: 4
+        domain_decomposition: [2, 2, 1]

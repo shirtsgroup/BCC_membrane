@@ -1,0 +1,16 @@
+METADATA FOR GEOMETRIC PORE-TO-PORE DISTANCE DISTRIBUTIONS
+
+Data were generated with the following command:
+    python geometric_analysis.py -s gyroid schwarz primitive -n 10000 -o pore2pore
+
+This produces probability density distributions for each of the three space groups using 10,000 samples.
+
+The hard-coded parameters for this analysis are:
+    n, grid size of 100 by 100 by 100 for the discretized nodal approximations
+    box, 9.4 nm -- experimental unit cell size
+    struct_tol, 0.01 -- tolerance for discretized points on surface
+    guess, 4.6 nm -- initial guess for the pore-to-pore distance from bilayer simulation
+
+The kernel density estimation used to smooth the distribution was a Gaussian kernel.
+    Bandwidth was determined by 10-fold cross-validation -- 0.1 for every space group
+    
