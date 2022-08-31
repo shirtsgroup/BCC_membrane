@@ -31,18 +31,18 @@
 `python bcc_xlink.py -y bcc_xlink.yaml >> bcc_xlink.log`
 
 #### Step 9: Solvate with water
-* Go to the folder [**9_solv_water**](9_solv_water) and source the script **solvate.sh** which runs the python command:\
+* Go to the folder **9_solv_water** and source the script **solvate.sh** which runs the python command:\
 `py bcc_solvate.py -y bcc_solvate.yaml`
 
 ### Scripts to replicate our analysis of the pores and transport within the bicontinuous cubic structure.
-* [MSDF](analysis/MSDF/README.md) - Minimal surface distribution function
-* bilayers - Comparisons between all-atom and CG bilayers
-* experimental_pore_size - Parametric bootstrap to get error on experimental pore size estimation
-* gyroid_stability - time series of glycerol displacement from the minimal surface, serving as a measure of stability over the simulation
-* mathematical_analysis - Mathematical argument to test how bilayers fit within different bicontinuous cubic space groups
-* pore_blazer - Pore size distribution over a trajectory performed by [PoreBlazer](https://github.com/SarkisovGitHub/PoreBlazer)
-* transport - Mean square displacement and diffusion coefficient analysis
-* visualizations - some VMD visualization states of the gyroid structure
+* [MSDF](analysis/MSDF) - Minimal surface distribution function
+* [bilayers](analysis/bilayers) - Comparisons between all-atom and CG bilayers
+* [experimental_pore_size](analysis/experimental_pore_size) - Parametric bootstrap to get error on experimental pore size estimation
+* [gyroid_stability](analysis/gyroid_stability) - time series of glycerol displacement from the minimal surface, serving as a measure of stability over the simulation
+* [mathematical_analysis](analysis/mathematical_analysis) - Mathematical argument to test how bilayers fit within different bicontinuous cubic space groups
+* [pore_blazer](analysis/pore_blazer) - Pore size distribution over a trajectory performed by [PoreBlazer](https://github.com/SarkisovGitHub/PoreBlazer)
+* [transport](analysis/transport) - Mean square displacement and diffusion coefficient analysis
+* [visualizations](analysis/visualizations) - VMD visualization states of the gyroid structure
 
 
 

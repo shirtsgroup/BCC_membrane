@@ -13,6 +13,48 @@ from sklearn.neighbors import KernelDensity
 from sklearn.model_selection import GridSearchCV, KFold
 
 ##################################################################################################################
+############################################ INPUT PARAMETERS ####################################################
+##################################################################################################################
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-s','--struct',nargs='+',
+                    help='structure to generate distribution for')
+parser.add_argument('-n','--sample',type=int,
+                    help='number of samples in each distribution')
+parser.add_argument('-r','--restrict',action='store_true',
+                    help='only save reasonable values, default = False')
+parser.add_argument('-o','--output',default='output.png',
+                    help='name of the output figure file')
+args = parser.parse_args()
+
+# Parse arguments for which distributions to generate
+sample = args.sample
+restrictions = args.restrict
+if 'gyroid' in args.struct:
+    gyroid = True
+else:
+    gyroid = False
+
+if 'schwarz' in args.struct:
+    schwarz = True
+else:
+    schwarz = False
+
+if 'primitive' in args.struct:
+    primitive = True
+else:
+    primitive = False
+
+
+# Some hard coded parameters to use in all distributions
+n = 100                 # grid size for discretized structure
+box = 9.4               # box size in nm
+period = box            # period of the minimal surface in nm
+struct_tol = 0.01       # tolerance for locating discretized points on the surface
+guess = 4.6             # initial guess for the numerical solvers --> corresponds to the bilayer distance + expected pore size from MD and experiment
+# random.seed(123)      # uncomment if you want to set a random seed for reproducibility
+
+##################################################################################################################
 ####################################### FUNCTIONS FOR CALCULATIONS ###############################################
 ##################################################################################################################
 
@@ -276,49 +318,6 @@ def brentq_solver(structure,struct='gyroid',box=9.4,period=9.4,sample=10):
     
     return distribution
 
-
-
-##################################################################################################################
-############################################ INPUT PARAMETERS ####################################################
-##################################################################################################################
-
-parser = argparse.ArgumentParser()
-parser.add_argument('-s','--struct',nargs='+',
-                    help='structure to generate distribution for')
-parser.add_argument('-n','--sample',type=int,
-                    help='number of samples in each distribution')
-parser.add_argument('-r','--restrict',action='store_true',
-                    help='only save reasonable values, default = False')
-parser.add_argument('-o','--output',default='output.png',
-                    help='name of the output figure file')
-args = parser.parse_args()
-
-# Parse arguments for which distributions to generate
-sample = args.sample
-restrictions = args.restrict
-if 'gyroid' in args.struct:
-    gyroid = True
-else:
-    gyroid = False
-
-if 'schwarz' in args.struct:
-    schwarz = True
-else:
-    schwarz = False
-
-if 'primitive' in args.struct:
-    primitive = True
-else:
-    primitive = False
-
-
-# Some hard coded parameters to use in all distributions
-n = 100                 # grid size for discretized structure
-box = 9.4               # box size in nm
-period = box            # period of the minimal surface in nm
-struct_tol = 0.01       # tolerance for locating discretized points on the surface
-guess = 4.6             # initial guess for the numerical solvers --> corresponds to the bilayer distance + expected pore size from MD and experiment
-# random.seed(123)      # uncomment if you want to set a random seed for reproducibility
 
 
 ##################################################################################################################
