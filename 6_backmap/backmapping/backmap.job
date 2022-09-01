@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH -N 1 --ntasks-per-node=8
+#SBATCH -t 2:00:00
+#SBATCH -p RM-shared
+#SBATCH -J 'backmap'
+#SBATCH -o '%x.out'
+
+module load gromacs/2018
+source /jet/home/schwinns/.bashrc # to access Anaconda installation
+conda env create -f py2.yml
+conda activate py2
+
+./initram-v5.sh -f prod1.gro -o backmapped.gro -to gaff -p topol.top

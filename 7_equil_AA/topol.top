@@ -1,0 +1,20 @@
+;Forcefield
+#include "./lib/Forcefields/gaff.itp"
+
+;Monomer topology
+#include "./lib/topologies/MOL.itp"
+
+;GLY topology
+#include "./lib/topologies/GLY.itp"
+
+;ION topology
+#include "./lib/topologies/ION.itp"
+
+[ system ]
+Gyroid
+
+[ molecules ]
+;Compounds     nmols
+MOL              486
+GLY             1236
+BR               972

@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH -N 1 --ntasks-per-node=128
+#SBATCH -t 24:00:00
+#SBATCH -p RM
+#SBATCH -J 'prod'
+#SBATCH -o '%x.out'
+
+module load gcc
+module load cuda/11.1.1
+module load openmpi/3.1.6-gcc8.3.1
+PATH=$PATH:/jet/home/schwinns/pkgs/gromacs/2020.5           # add Gromacs to path
+source /jet/home/schwinns/pkgs/gromacs/2020.5/bin/GMXRC     # source GMXRC 
+
+export GMX_MAXBACKUP=-1  # do not make back-ups
+export GMX_MAXCONSTRWARN=-1
+
+#NPT (500 ns)
+gmx grompp -p topol.top -f npt.mdp -c backmapped.gro -o prod.tpr
+gmx mdrun -deffnm prod -ntomp 1
